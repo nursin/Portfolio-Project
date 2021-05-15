@@ -3,7 +3,7 @@ body {
 }
 
 h1, h2, h3 {
-    font-family: "Lobster", cursive;
+    font-family: "Goblin One", cursive;
 }
 
 h2 {
@@ -35,4 +35,12 @@ header h2 {
 
 .navbar {
   background-color: #8a30c5;
+}
+
+#generateButton {
+  background-color: #2904ff;
+}
+
+#searchButton {
+  background-color: #dd37b9;
 }
