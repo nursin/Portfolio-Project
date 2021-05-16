@@ -37,10 +37,23 @@ header h2 {
   background-color: #8a30c5;
 }
 
-#generateButton {
+.bg-blue {
   background-color: #2904ff;
 }
 
-#searchButton {
+.bg-pink {
   background-color: #dd37b9;
+  
+}
+
+#logo:hover {
+  color: #2904ff;
+}
+
+#logo {
+  color: white;
+}
+
+.button-hover-bg-gradient:hover {
+  background-image: linear-gradient(to right, #dd37b9, #8a30c5, #2904ff);
 }
