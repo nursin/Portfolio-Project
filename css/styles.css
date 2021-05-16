@@ -43,7 +43,10 @@ header h2 {
 
 .bg-pink {
   background-color: #dd37b9;
-  
+}
+
+.bg-gradient {
+  background-image: linear-gradient(to right, #dd37b9, #8a30c5, #2904ff);
 }
 
 #logo:hover {
