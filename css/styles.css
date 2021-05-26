@@ -1,62 +1,48 @@
 body {
-    font-family: "Open Sans", sans-serif;
-}
+  font-family: "Open Sans", sans-serif; }
 
 h1, h2, h3 {
-    font-family: "Goblin One", cursive;
-}
+  font-family: "Goblin One", cursive; }
 
 h2 {
-    color: #2904ff;
-}
+  color: #2904ff; }
 
 header h2 {
-    color: #CEC8FF;
-}
+  color: #CEC8FF; }
 
 .site-footer {
-    background-image: linear-gradient(#dd37b9, #2904ff);
-    padding: 20px 0;
-    color: white;
-}
+  background-image: linear-gradient(#dd37b9, #2904ff);
+  padding: 20px 0;
+  color: white; }
 
 .jumbotron {
-    padding: 30px;
-    background-image: linear-gradient(to right, #dd37b9, #8a30c5, #2904ff);
-    color: white;
-    margin: 0;
-}
+  padding: 30px;
+  background-image: linear-gradient(to right, #dd37b9, #8a30c5, #2904ff);
+  color: white;
+  margin: 0; }
 
 .row-content {
-    padding: 50px 0;
-    border-bottom: 1px ridge;
-    min-height: 200px;
-}
+  padding: 50px 0;
+  border-bottom: 1px ridge;
+  min-height: 200px; }
 
 .navbar {
-  background-color: #8a30c5;
-}
+  background-color: #8a30c5; }
 
 .bg-blue {
-  background-color: #2904ff;
-}
+  background-color: #2904ff; }
 
 .bg-pink {
-  background-color: #dd37b9;
-}
+  background-color: #dd37b9; }
 
 .bg-gradient {
-  background-image: linear-gradient(to right, #dd37b9, #8a30c5, #2904ff);
-}
+  background-image: linear-gradient(to right, #dd37b9, #8a30c5, #2904ff); }
 
 #logo:hover {
-  color: #2904ff;
-}
+  color: #2904ff; }
 
 #logo {
-  color: white;
-}
+  color: white; }
 
 .button-hover-bg-gradient:hover {
-  background-image: linear-gradient(to right, #dd37b9, #8a30c5, #2904ff);
-}
+  background-image: linear-gradient(to right, #dd37b9, #8a30c5, #2904ff); }

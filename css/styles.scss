@@ -1,0 +1,74 @@
+$color-primary: #2904ff;
+$color-secondary: #dd37b9;
+$color-pale: #CEC8FF;
+$color-mid: #8a30c5;
+$color-dark: #60106B;
+$color-black-transparent: rgba(0, 0, 0, 0.5);
+$color-teal: #17A2B8;
+$color-text-white: white;
+
+$body-font: "Open Sans", sans-serif;
+$header-font: "Goblin One", cursive;
+
+body {
+  font-family: $body-font;
+}
+
+h1, h2, h3 {
+  font-family: $header-font;
+}
+
+h2 {
+  color: $color-primary;
+}
+
+header h2 {
+  color: $color-pale;
+}
+
+.site-footer {
+  background-image: linear-gradient($color-secondary, $color-primary);
+  padding: 20px 0;
+  color: $color-text-white;
+}
+
+.jumbotron {
+  padding: 30px;
+  background-image: linear-gradient(to right, $color-secondary, $color-mid, $color-primary);
+  color: $color-text-white;
+  margin: 0;
+}
+
+.row-content {
+  padding: 50px 0;
+  border-bottom: 1px ridge;
+  min-height: 200px;
+}
+
+.navbar {
+background-color: $color-mid;
+}
+
+.bg-blue {
+background-color: $color-primary;
+}
+
+.bg-pink {
+background-color: $color-secondary;
+}
+
+.bg-gradient {
+background-image: linear-gradient(to right, $color-secondary, $color-mid, $color-primary);
+}
+
+#logo:hover {
+color: $color-primary;
+}
+
+#logo {
+color: $color-text-white;
+}
+
+.button-hover-bg-gradient:hover {
+background-image: linear-gradient(to right, $color-secondary, $color-mid, $color-primary);
+}
