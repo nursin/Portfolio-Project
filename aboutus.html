@@ -36,12 +36,42 @@
         </div>
         <!-- This button will open a share modal so the user can select messages, social, email and such -->
         <div class="col-md-4 col-xl-2 mt-4 text-center">
-          <a href="" class="btn btn-warning btn-lg">Share With Friends</a>
+          <a class="btn btn-warning btn-lg" type="button" data-toggle="modal" data-target="#shareSocialModal">Share With Friends</a>
         </div>
       </div>
     </div>
   </header>
 
+  <!-- Share on social modal -->
+  <div id="shareSocialModal" class="modal fade" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-gradient text-white">
+          <h3 class="modal-title">Share on social media</h3>
+          <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12 text-center">
+                <a href="http://facebook.com/" class="btn button-hover-bg-gradient bg-blue text-white" target="_blank">Share on <i class="fa fa-facebook fa-2x"></i>acebook</a>
+              </div>
+              <div class="col-12 text-center mt-2">
+                <a href="http://twitter.com/" class="btn button-hover-bg-gradient bg-blue text-white" target="_blank">Share on <i class="fa fa-twitter fa-2x"></i>Twitter</a>
+              </div>
+              <div class="col-12 text-center mt-2">
+                <a href="http://instagram.com/" class="btn button-hover-bg-gradient bg-blue text-white" target="_blank">Share on <i class="fa fa-instagram fa-2x"></i> Instagram</a>
+              </div>
+              <div class="col-12 text-center mt-2">
+                <a href="http://youtube.com/" class="btn button-hover-bg-gradient bg-blue text-white" target="_blank">Share on <i class="fa fa-youtube fa-2x"></i> YouTube</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
     <div class="container">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dateActNavbar">
