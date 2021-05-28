@@ -46,7 +46,7 @@ const PROFESSION = ['Accountant', 'Actor', 'Administrator', 'Aerospace Engineer'
 // horoscope should match dob maybe? could be funny
 const HOROSCOPE = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'];
 
-const QUIRKY_FACT = ['I make babies cry for good luck'];
+const QUIRKY_FACT = ['I make babies cry for good luck', 'I sleep with one eye open', 'I turn dead bodies into ocean reefs', 'I ride a flying bicycle', 'I haul my vacuum cleaner around with a horse', 'I have a 916 pound padlock', 'I poop most of what I eat', ];
 
 function generateAge() {
   const MIN_AGE = 10;
@@ -64,7 +64,7 @@ function generateBIO() {
   const LIKES = ['cats', 'dogs', 'tigers', 'peanuts', 'cilantro'];
   const OWNS_A = ['house', 'cat', 'dog', 'robot', 'boat', 'hospital', 'business'];
   const PLAYS = ['baseball', 'basketball', 'football', 'video games'];
-  const BIGGEST_ACHIEVEMENT = ['ate a biscuit', 'ran a marathon', 'won a superbowl ring', 'ha a baby'];
+  const BIGGEST_ACHIEVEMENT = ['ate a biscuit', 'ran a marathon', 'won a superbowl ring', 'have a baby'];
   const ULTIMATE_GOAL = ['be a dancer', 'fly a plane', 'have a baby', 'eat 60 pizzas', 'beat a guinness world record'];
   const ASPIRE_TO_BE = ['a bunny', 'hit man', 'gardener'];
 
