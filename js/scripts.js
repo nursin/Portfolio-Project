@@ -5,7 +5,7 @@
 // create a object called profile that randomly generates each charactor attribute or character based on the selections from the form
 function generateProfile() {
   // NAME
-  console.log(`Name: ${NAMES[Math.floor(Math.random()*NAMES.length)]}`);
+  cpnsole.log(`Name: ${NAMES[Math.floor(Math.random()*NAMES.length)]}`);
   // AGE
   console.log(`Age: ${generateAge()}`);
   // DOB
@@ -46,7 +46,7 @@ const PROFESSION = ['Accountant', 'Actor', 'Administrator', 'Aerospace Engineer'
 // horoscope should match dob maybe? could be funny
 const HOROSCOPE = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'];
 
-const QUIRKY_FACT = ['I make babies cry for good luck', 'I sleep with one eye open', 'I turn dead bodies into ocean reefs', 'I ride a flying bicycle', 'I haul my vacuum cleaner around with a horse', 'I have a 916 pound padlock', 'I poop most of what I eat', ];
+const QUIRKY_FACT = ['I make babies cry for good luck', 'I sleep with one eye open', 'I turn dead bodies into ocean reefs', 'I ride a flying bicycle', 'I haul my vacuum cleaner around with a horse', 'I have a 916 pound padlock', 'I poop most of what I eat'];
 
 function generateAge() {
   const MIN_AGE = 10;
