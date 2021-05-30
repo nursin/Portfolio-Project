@@ -7,6 +7,9 @@ h1, h2, h3 {
 h2 {
   color: #2904ff; }
 
+p {
+  text-indent: 50px; }
+
 header h2 {
   color: #CEC8FF; }
 

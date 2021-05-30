@@ -20,7 +20,7 @@ toggleBtns([clearBtn, saveProfileBtn], false);
 // create a object called profile that randomly generates each charactor attribute or character based on the selections from the form
 function generateProfile() {
   // Profile header
-  profileHeader.innerText = 'Profile:';
+  profileHeader.innerText = 'Character profile ready:';
   profileHeader.appendChild(document.createElement("hr"));
   // NAME
   profileName.innerText = (`Name: ${NAMES[Math.floor(Math.random()*NAMES.length)]}`);
