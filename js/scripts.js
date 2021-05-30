@@ -1,26 +1,46 @@
 // Date Act is an app that will allow the user to select attribute classes (gender, age range, and type), then use those attributes to randomly generate a famous character profile, or generate a random not famous profile from multiple attribute classes. should the user select create your own the user will be prompted by a profile form to complete which will store the character profile for use by anyone. should the user search for a character with keywords the profiles will list on the page for the user to click and open profile. then user will be able to save the profile to their account for later use.
+const generateProfileBtn = document.querySelector('#generateProfileBtn');
+const clearProfileBtn = document.querySelector('#clearBtn');
+const saveProfileBtn = document.querySelector('#saveProfileBtn');
+const profileHeader = document.querySelector('#profileHeader');
+const profileName = document.querySelector('#name');
+const profileAge = document.querySelector('#age');
+const profileHoroscope = document.querySelector('#horoscope');
+const profileType = document.querySelector('#type');
+const profileBio = document.querySelector('#bio');
+const profileAdjectives = document.querySelector('#adjectives');
+const profileQuirkyFact = document.querySelector('#quirky-fact');
+const profileProfession = document.querySelector('#profession');
 
+generateProfileBtn.addEventListener('click', generateProfile);
+clearProfileBtn.addEventListener('click', clearProfile);
 
+toggleBtns([clearBtn, saveProfileBtn], false);
 
 // create a object called profile that randomly generates each charactor attribute or character based on the selections from the form
 function generateProfile() {
+  // Profile header
+  profileHeader.innerText = 'Profile:';
+  profileHeader.appendChild(document.createElement("hr"));
   // NAME
-  cpnsole.log(`Name: ${NAMES[Math.floor(Math.random()*NAMES.length)]}`);
+  profileName.innerText = (`Name: ${NAMES[Math.floor(Math.random()*NAMES.length)]}`);
   // AGE
-  console.log(`Age: ${generateAge()}`);
-  // DOB
+  profileAge.innerText = (`Age: ${generateAge()}`);
   // HOROSCOPE
-  console.log(`Horoscope: ${HOROSCOPE[Math.floor(Math.random()*HOROSCOPE.length)]}`);
+  profileHoroscope.innerText = (`Horoscope: ${HOROSCOPE[Math.floor(Math.random()*HOROSCOPE.length)]}`);
   // TYPE
-  console.log('Type: Not Famous'); // select option value here
+  profileType.innerText = ('Type: Not Famous'); // select option value here
   // BIO
-  console.log(`Bio: ${generateBIO()}`);
+  profileBio.innerText = (`Bio: ${generateBIO()}`);
   //ADJECTIVES
-  console.log(`Adjectives: ${POSITIVE_ADJECTIVE_LIST[Math.floor(Math.random()*POSITIVE_ADJECTIVE_LIST.length)]}/${NEGATIVE_ADJECTIVE_LIST[Math.floor(Math.random()*NEGATIVE_ADJECTIVE_LIST.length)]}`);
+  profileAdjectives.innerText = (`Adjectives: ${POSITIVE_ADJECTIVE_LIST[Math.floor(Math.random()*POSITIVE_ADJECTIVE_LIST.length)]}/${NEGATIVE_ADJECTIVE_LIST[Math.floor(Math.random()*NEGATIVE_ADJECTIVE_LIST.length)]}`);
   // QUIRKY_FACT
-  console.log(`Quirky fact: ${QUIRKY_FACT[Math.floor(Math.random()*QUIRKY_FACT.length)]}`);
+  profileQuirkyFact.innerText = (`Quirky fact: ${QUIRKY_FACT[Math.floor(Math.random()*QUIRKY_FACT.length)]}`);
   // PROFESSION
-  console.log(`Profession: ${PROFESSION[Math.floor(Math.random()*PROFESSION.length)]}`);
+  profileProfession.innerText = (`Profession: ${PROFESSION[Math.floor(Math.random()*PROFESSION.length)]}`);
+
+  toggleBtns([clearBtn, saveProfileBtn], true);
+
 }
 
 
@@ -54,11 +74,6 @@ function generateAge() {
   return Math.floor(Math.random() * (MAX_AGE - MIN_AGE) + MIN_AGE);
 }
 
-function generateDOB() {
-  // generates date for birthday
-  // should match age
-}
-
 function generateBIO() {
   const GREW_UP_IN = ['small', 'large', 'jungle'];
   const LIKES = ['cats', 'dogs', 'tigers', 'peanuts', 'cilantro'];
@@ -68,8 +83,39 @@ function generateBIO() {
   const ULTIMATE_GOAL = ['be a dancer', 'fly a plane', 'have a baby', 'eat 60 pizzas', 'beat a guinness world record'];
   const ASPIRE_TO_BE = ['a bunny', 'hit man', 'gardener'];
 
-  return string = `Grew up in a ${GREW_UP_IN[Math.floor(Math.random()*GREW_UP_IN.length)]} town. Likes ${LIKES[Math.floor(Math.random()*LIKES.length)]}. Owns a ${OWNS_A[Math.floor(Math.random()*OWNS_A.length)]}. Plays ${PLAYS[Math.floor(Math.random()*PLAYS.length)]}. Biggest achievement is ${BIGGEST_ACHIEVEMENT[Math.floor(Math.random()*BIGGEST_ACHIEVEMENT.length)]}. My ultimate goal is to ${ULTIMATE_GOAL[Math.floor(Math.random()*ULTIMATE_GOAL.length)]}. Aspire to be ${ASPIRE_TO_BE[Math.floor(Math.random()*ASPIRE_TO_BE.length)]}.`
+  return string = `Grew up in a ${GREW_UP_IN[Math.floor(Math.random()*GREW_UP_IN.length)]} town. Likes ${LIKES[Math.floor(Math.random()*LIKES.length)]}. Owns a ${OWNS_A[Math.floor(Math.random()*OWNS_A.length)]}. Plays ${PLAYS[Math.floor(Math.random()*PLAYS.length)]}. Biggest achievement is ${BIGGEST_ACHIEVEMENT[Math.floor(Math.random()*BIGGEST_ACHIEVEMENT.length)]}. My ultimate goal is to ${ULTIMATE_GOAL[Math.floor(Math.random()*ULTIMATE_GOAL.length)]}. Aspire to be ${ASPIRE_TO_BE[Math.floor(Math.random()*ASPIRE_TO_BE.length)]}.`;
   // 'Movies','TV','Religion','Music','Sports','Books','Politics'
+}
+
+function clearProfile() {
+  profileHeader.innerText = '';
+  removeAllChildNodes(profileHeader);
+  profileName.innerText = '';
+  profileAge.innerText = '';
+  profileType.innerText = '';
+  profileHoroscope.innerText = '';
+  profileBio.innerText = '';
+  profileAdjectives.innerText = '';
+  profileQuirkyFact.innerText = '';
+  profileProfession.innerText = '';
+
+  toggleBtns([clearBtn, saveProfileBtn], false);
+}
+
+function toggleBtns(btnsArray, on) { 
+  for (let btn = 0; btn < btnsArray.length; btn++) {
+      if (on) {
+          btnsArray[btn].style.display = "inline-block"; 
+      } else {
+          btnsArray[btn].style.display = "none";
+      }
+  }
+}
+
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+  }
 }
 
 // create a list of famous profiles or famous attributes to add to a famous character

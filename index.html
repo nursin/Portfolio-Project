@@ -91,16 +91,14 @@
 
   <div class="container">
     <div class="row row-content">
-      <div class="col-12 col-sm-6">
+      <div class="col-12 col-md-6">
         <h2>Choose character features:</h2>
         <hr />
-      </div>
-      <div class="col-md-10">
 
         <form>
           <div class="form-group row">
             <label class="col-md-2 col-form-label" for="gender">Gender</label>
-            <div class="col-md-4">
+            <div class="col-md-10">
               <select class="form-control" name="gender" id="gender">
                 <option selected disabled>Select...</option>
                 <option value="male">Male</option>
@@ -112,7 +110,7 @@
           </div>
           <div class="form-group row">
             <label class="col-md-2 col-form-label" for="gender">Age range</label>
-            <div class="col-md-4">
+            <div class="col-md-10">
               <select class="form-control" name="gender" id="gender">
                 <option selected disabled>Select...</option>
                 <option value="10-18">10 - 18</option>
@@ -126,7 +124,7 @@
           </div>
           <div class="form-group row">
             <label class="col-md-2 col-form-label" for="gender">Type</label>
-            <div class="col-md-4">
+            <div class="col-md-10">
               <select class="form-control" name="gender" id="gender">
                 <option selected disabled>Select...</option>
                 <option value="famous">Famous</option>
@@ -137,27 +135,44 @@
           </div>
           <div class="form-group row mt-4">
             <div class="col">
-                <button class="btn btn-lg text-white bg-blue button-hover-bg-gradient"><i class="fa fa-transgender-alt fa-lg" aria-hidden="true"></i> Generate</button>
+                <button type="button" id="generateProfileBtn" class="btn btn-lg text-white bg-blue button-hover-bg-gradient"><i class="fa fa-transgender-alt fa-lg" aria-hidden="true"></i> Generate</button>
             </div>
           </div>
           <div class="form-group row mt-3">
             <div class="col col-md-6">
-              <p onclick="generateProfile()" class="text-center">OR</p>
+              <p class="text-center">OR</p>
             </div>
           </div>
           <!-- may have to make a new form for this search box 
           will be used to search character database by keyword-->
           <div class="form-group row mt-3"> 
-            <div class="col-12 col-sm-9 col-md-4">
+            <div class="col-12 col-md-7">
               <input id="searchBox" class="form-control" type="text" placeholder="Enter keywords">
             </div>
-            <div class="col mt-4 mt-sm-0">
+            <div class="col mt-4 mt-md-0">
               <button class="btn text-white bg-blue button-hover-bg-gradient"><i class="fa fa-search fa-lg"></i> Search</button>
           </div>
           </div>
         </form>
+      </div>
+
+      <div id="profileContainer" class="col-12 col-md-6 mt-md-4">
+        <h2 id="profileHeader" class="text-center"></h2>
+        <div id="name" class="col-12"></div>
+        <div id="age" class="col-12"></div>
+        <div id="horoscope" class="col-12"></div>
+        <div id="type" class="col-12"></div>
+        <div id="bio" class="col-12"></div>
+        <div id="adjectives" class="col-12"></div>
+        <div id="quirky-fact" class="col-12"></div>
+        <div id="profession" class="col-12"></div>
+        <div class="btn-group mt-4 ml-3">
+          <button id="clearBtn" class="btn btn-secondary">Clear</button>
+          <button id="saveProfileBtn" class="btn btn-primary">Save</button>
+        </div>
 
       </div>
+
     </div>
   </div>
 
@@ -198,8 +213,8 @@
   <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
   <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>   
-  <!-- endbuild -->
   <script src="js/scripts.js"></script>
+  <!-- endbuild -->
 </body>
 
 </html>
