@@ -45,7 +45,6 @@ function generateProfile() {
 
   toggleBtns([restartBtn], true);
   var charForm = removeAllChildNodes(chooseCharacterForm);
-  console.log(charForm);
 }
 
 
@@ -122,7 +121,6 @@ function removeAllChildNodes(parent) {
   while (parent.firstChild) {
       element = parent.removeChild(parent.firstChild);
       elementArray.push(element);
-      console.log(elementArray);
   }
 }
 
@@ -130,7 +128,6 @@ function addRemovedChildNodes(elemArray, parent) {
   while (elemArray.length > 0) {
     element = elemArray.shift();
     parent.appendChild(element);
-    console.log(element);
   }
 }
 
