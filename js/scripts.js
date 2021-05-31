@@ -23,21 +23,21 @@ function generateProfile() {
   profileHeader.innerText = 'Character profile ready:';
   profileHeader.appendChild(document.createElement("hr"));
   // NAME
-  profileName.innerText = (`Name: ${NAMES[Math.floor(Math.random()*NAMES.length)]}`);
+  profileName.innerText = "Name: " + NAMES[Math.floor(Math.random()*NAMES.length)];
   // AGE
-  profileAge.innerText = (`Age: ${generateAge()}`);
+  profileAge.innerText = "Age: " + generateAge();
   // HOROSCOPE
-  profileHoroscope.innerText = (`Horoscope: ${HOROSCOPE[Math.floor(Math.random()*HOROSCOPE.length)]}`);
+  profileHoroscope.innerText = "Horoscope: " + HOROSCOPE[Math.floor(Math.random()*HOROSCOPE.length)];
   // TYPE
-  profileType.innerText = ('Type: Not Famous'); // select option value here
+  profileType.innerText = "Type: Not Famous"; // select option value here
   // BIO
-  profileBio.innerText = (`Bio: ${generateBIO()}`);
+  profileBio.innerText = "Bio: " + generateBIO();
   //ADJECTIVES
-  profileAdjectives.innerText = (`Adjectives: ${POSITIVE_ADJECTIVE_LIST[Math.floor(Math.random()*POSITIVE_ADJECTIVE_LIST.length)]}/${NEGATIVE_ADJECTIVE_LIST[Math.floor(Math.random()*NEGATIVE_ADJECTIVE_LIST.length)]}`);
+  profileAdjectives.innerText = "Adjectives: " + POSITIVE_ADJECTIVE_LIST[Math.floor(Math.random()*POSITIVE_ADJECTIVE_LIST.length)] + "/" + NEGATIVE_ADJECTIVE_LIST[Math.floor(Math.random()*NEGATIVE_ADJECTIVE_LIST.length)];
   // QUIRKY_FACT
-  profileQuirkyFact.innerText = (`Quirky fact: ${QUIRKY_FACT[Math.floor(Math.random()*QUIRKY_FACT.length)]}`);
+  profileQuirkyFact.innerText = "Quirky fact: " + QUIRKY_FACT[Math.floor(Math.random()*QUIRKY_FACT.length)];
   // PROFESSION
-  profileProfession.innerText = (`Profession: ${PROFESSION[Math.floor(Math.random()*PROFESSION.length)]}`);
+  profileProfession.innerText = "Profession: " + PROFESSION[Math.floor(Math.random()*PROFESSION.length)];
 
   toggleBtns([clearBtn, saveProfileBtn], true);
 
@@ -83,7 +83,7 @@ function generateBIO() {
   const ULTIMATE_GOAL = ['be a dancer', 'fly a plane', 'have a baby', 'eat 60 pizzas', 'beat a guinness world record'];
   const ASPIRE_TO_BE = ['a bunny', 'hit man', 'gardener'];
 
-  return string = `Grew up in a ${GREW_UP_IN[Math.floor(Math.random()*GREW_UP_IN.length)]} town. Likes ${LIKES[Math.floor(Math.random()*LIKES.length)]}. Owns a ${OWNS_A[Math.floor(Math.random()*OWNS_A.length)]}. Plays ${PLAYS[Math.floor(Math.random()*PLAYS.length)]}. Biggest achievement is ${BIGGEST_ACHIEVEMENT[Math.floor(Math.random()*BIGGEST_ACHIEVEMENT.length)]}. My ultimate goal is to ${ULTIMATE_GOAL[Math.floor(Math.random()*ULTIMATE_GOAL.length)]}. Aspire to be ${ASPIRE_TO_BE[Math.floor(Math.random()*ASPIRE_TO_BE.length)]}.`;
+  return "Grew up in a " + GREW_UP_IN[Math.floor(Math.random()*GREW_UP_IN.length)] + " town. Likes " + LIKES[Math.floor(Math.random()*LIKES.length)] + ". Owns a " + OWNS_A[Math.floor(Math.random()*OWNS_A.length)] + ". Plays " + PLAYS[Math.floor(Math.random()*PLAYS.length)] + ". Biggest achievement is " + BIGGEST_ACHIEVEMENT[Math.floor(Math.random()*BIGGEST_ACHIEVEMENT.length)] + ". My ultimate goal is to " + ULTIMATE_GOAL[Math.floor(Math.random()*ULTIMATE_GOAL.length)] + ". Aspire to be " + ASPIRE_TO_BE[Math.floor(Math.random()*ASPIRE_TO_BE.length)] + ".";
   // 'Movies','TV','Religion','Music','Sports','Books','Politics'
 }
 
