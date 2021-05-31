@@ -1,6 +1,8 @@
 // Date Act is an app that will allow the user to select attribute classes (gender, age range, and type), then use those attributes to randomly generate a famous character profile, or generate a random not famous profile from multiple attribute classes. should the user select create your own the user will be prompted by a profile form to complete which will store the character profile for use by anyone. should the user search for a character with keywords the profiles will list on the page for the user to click and open profile. then user will be able to save the profile to their account for later use.
+var elementArray = [];
+
 const generateProfileBtn = document.querySelector('#generateProfileBtn');
-const clearProfileBtn = document.querySelector('#clearBtn');
+const clearProfileBtn = document.querySelector('#restartBtn');
 const saveProfileBtn = document.querySelector('#saveProfileBtn');
 const profileHeader = document.querySelector('#profileHeader');
 const profileName = document.querySelector('#name');
@@ -11,11 +13,13 @@ const profileBio = document.querySelector('#bio');
 const profileAdjectives = document.querySelector('#adjectives');
 const profileQuirkyFact = document.querySelector('#quirky-fact');
 const profileProfession = document.querySelector('#profession');
+const chooseCharacterForm = document.querySelector('#chooseCharacterForm');
+
 
 generateProfileBtn.addEventListener('click', generateProfile);
 clearProfileBtn.addEventListener('click', clearProfile);
 
-toggleBtns([clearBtn, saveProfileBtn], false);
+toggleBtns([restartBtn, saveProfileBtn], false);
 
 // create a object called profile that randomly generates each charactor attribute or character based on the selections from the form
 function generateProfile() {
@@ -39,8 +43,9 @@ function generateProfile() {
   // PROFESSION
   profileProfession.innerText = "Profession: " + PROFESSION[Math.floor(Math.random()*PROFESSION.length)];
 
-  toggleBtns([clearBtn, saveProfileBtn], true);
-
+  toggleBtns([restartBtn, saveProfileBtn], true);
+  var charForm = removeAllChildNodes(chooseCharacterForm);
+  console.log(charForm);
 }
 
 
@@ -99,7 +104,8 @@ function clearProfile() {
   profileQuirkyFact.innerText = '';
   profileProfession.innerText = '';
 
-  toggleBtns([clearBtn, saveProfileBtn], false);
+  toggleBtns([restartBtn, saveProfileBtn], false);
+  addRemovedChildNodes(elementArray, chooseCharacterForm);
 }
 
 function toggleBtns(btnsArray, on) { 
@@ -114,7 +120,17 @@ function toggleBtns(btnsArray, on) {
 
 function removeAllChildNodes(parent) {
   while (parent.firstChild) {
-      parent.removeChild(parent.firstChild);
+      element = parent.removeChild(parent.firstChild);
+      elementArray.push(element);
+      console.log(elementArray);
+  }
+}
+
+function addRemovedChildNodes(elemArray, parent) {
+  while (elemArray.length > 0) {
+    element = elemArray.shift();
+    parent.appendChild(element);
+    console.log(element);
   }
 }
 
