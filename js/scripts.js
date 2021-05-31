@@ -27,21 +27,21 @@ function generateProfile() {
   profileHeader.innerText = 'Character profile ready:';
   profileHeader.appendChild(document.createElement("hr"));
   // NAME
-  profileName.innerText = "Name: " + NAMES[Math.floor(Math.random()*NAMES.length)];
+  profileName.innerHTML = "<strong>Name:</strong> " + NAMES[Math.floor(Math.random()*NAMES.length)];
   // AGE
-  profileAge.innerText = "Age: " + generateAge();
+  profileAge.innerHTML = "<strong>Age:</strong> " + generateAge();
   // HOROSCOPE
-  profileHoroscope.innerText = "Horoscope: " + HOROSCOPE[Math.floor(Math.random()*HOROSCOPE.length)];
+  profileHoroscope.innerHTML = "<strong>Horoscope:</strong> " + HOROSCOPE[Math.floor(Math.random()*HOROSCOPE.length)];
   // TYPE
-  profileType.innerText = "Type: Not Famous"; // select option value here
+  profileType.innerHTML = "<strong>Type:</strong> Not Famous"; // select option value here
   // BIO
-  profileBio.innerText = "Bio: " + generateBIO();
+  profileBio.innerHTML = "<strong>Bio:</strong> " + generateBIO();
   //ADJECTIVES
-  profileAdjectives.innerText = "Adjectives: " + POSITIVE_ADJECTIVE_LIST[Math.floor(Math.random()*POSITIVE_ADJECTIVE_LIST.length)] + "/" + NEGATIVE_ADJECTIVE_LIST[Math.floor(Math.random()*NEGATIVE_ADJECTIVE_LIST.length)];
+  profileAdjectives.innerHTML = "<strong>Adjectives:</strong> " + POSITIVE_ADJECTIVE_LIST[Math.floor(Math.random()*POSITIVE_ADJECTIVE_LIST.length)] + "/" + NEGATIVE_ADJECTIVE_LIST[Math.floor(Math.random()*NEGATIVE_ADJECTIVE_LIST.length)];
   // QUIRKY_FACT
-  profileQuirkyFact.innerText = "Quirky fact: " + QUIRKY_FACT[Math.floor(Math.random()*QUIRKY_FACT.length)];
+  profileQuirkyFact.innerHTML = "<strong>Quirky fact:</strong> " + QUIRKY_FACT[Math.floor(Math.random()*QUIRKY_FACT.length)];
   // PROFESSION
-  profileProfession.innerText = "Profession: " + PROFESSION[Math.floor(Math.random()*PROFESSION.length)];
+  profileProfession.innerHTML = "<strong>Profession:</strong> " + PROFESSION[Math.floor(Math.random()*PROFESSION.length)];
 
   toggleBtns([restartBtn], true);
   var charForm = removeAllChildNodes(chooseCharacterForm);
