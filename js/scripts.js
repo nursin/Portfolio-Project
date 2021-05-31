@@ -3,7 +3,7 @@ var elementArray = [];
 
 const generateProfileBtn = document.querySelector('#generateProfileBtn');
 const clearProfileBtn = document.querySelector('#restartBtn');
-const saveProfileBtn = document.querySelector('#saveProfileBtn');
+// const saveProfileBtn = document.querySelector('#saveProfileBtn');
 const profileHeader = document.querySelector('#profileHeader');
 const profileName = document.querySelector('#name');
 const profileAge = document.querySelector('#age');
@@ -19,7 +19,7 @@ const chooseCharacterForm = document.querySelector('#chooseCharacterForm');
 generateProfileBtn.addEventListener('click', generateProfile);
 clearProfileBtn.addEventListener('click', clearProfile);
 
-toggleBtns([restartBtn, saveProfileBtn], false);
+toggleBtns([restartBtn], false);
 
 // create a object called profile that randomly generates each charactor attribute or character based on the selections from the form
 function generateProfile() {
@@ -43,7 +43,7 @@ function generateProfile() {
   // PROFESSION
   profileProfession.innerText = "Profession: " + PROFESSION[Math.floor(Math.random()*PROFESSION.length)];
 
-  toggleBtns([restartBtn, saveProfileBtn], true);
+  toggleBtns([restartBtn], true);
   var charForm = removeAllChildNodes(chooseCharacterForm);
   console.log(charForm);
 }
@@ -104,7 +104,7 @@ function clearProfile() {
   profileQuirkyFact.innerText = '';
   profileProfession.innerText = '';
 
-  toggleBtns([restartBtn, saveProfileBtn], false);
+  toggleBtns([restartBtn], false);
   addRemovedChildNodes(elementArray, chooseCharacterForm);
 }
 
