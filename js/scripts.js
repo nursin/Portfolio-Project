@@ -102,15 +102,15 @@ function clearProfile() {
   toggleBtns([clearBtn, saveProfileBtn], false);
 }
 
-function toggleBtns(btnsArray, on) { 
-  for (let btn = 0; btn < btnsArray.length; btn++) {
-      if (on) {
-          btnsArray[btn].style.display = "inline-block"; 
-      } else {
-          btnsArray[btn].style.display = "none";
-      }
-  }
-}
+// function toggleBtns(btnsArray, on) { 
+//   for (let btn = 0; btn < btnsArray.length; btn++) {
+//       if (on) {
+//           btnsArray[btn].style.display = "inline-block"; 
+//       } else {
+//           btnsArray[btn].style.display = "none";
+//       }
+//   }
+// }
 
 function removeAllChildNodes(parent) {
   while (parent.firstChild) {
