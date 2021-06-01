@@ -1,5 +1,9 @@
 // Date Act is an app that will allow the user to select attribute classes (gender, age range, and type), then use those attributes to randomly generate a famous character profile, or generate a random not famous profile from multiple attribute classes. should the user select create your own the user will be prompted by a profile form to complete which will store the character profile for use by anyone. should the user search for a character with keywords the profiles will list on the page for the user to click and open profile. then user will be able to save the profile to their account for later use.
-var elementArray = [];
+var storageChooseCharForm = [];
+var storageCreateOwnCharForm = [];
+var storageProfileReadyCard = [];
+var VOID_ARRAY_PROFILE_HEADER =[];
+
 
 const generateProfileBtn = document.querySelector('#generateProfileBtn');
 const clearProfileBtn = document.querySelector('#restartBtn');
@@ -14,12 +18,19 @@ const profileAdjectives = document.querySelector('#adjectives');
 const profileQuirkyFact = document.querySelector('#quirky-fact');
 const profileProfession = document.querySelector('#profession');
 const chooseCharacterForm = document.querySelector('#chooseCharacterForm');
+const createOwnCharacterForm = document.querySelector('#createOwnCharacterForm');
+const generateCreateOwnProfileBtn = document.querySelector('#generateCreateOwnProfileBtn');
+const profileReadyContainer = document.querySelector('#profileReadyContainer');
 
 
+generateCreateOwnProfileBtn.addEventListener('click', generateCreateOwnProfile);
 generateProfileBtn.addEventListener('click', generateProfile);
 clearProfileBtn.addEventListener('click', clearProfile);
 
+
 toggleBtns([restartBtn], false);
+removeAllChildNodes(createOwnCharacterForm, storageCreateOwnCharForm);
+removeAllChildNodes(profileReadyContainer, storageProfileReadyCard);
 
 // create a object called profile that randomly generates each charactor attribute or character based on the selections from the form
 function generateProfile() {
@@ -28,6 +39,7 @@ function generateProfile() {
   const charAge = document.getElementById('charAge').value;
   const charType = document.getElementById('charType').value;
 
+  addRemovedChildNodes(profileReadyContainer, storageProfileReadyCard);
 
   if (charType == 'famous'){
     // run famous profile
@@ -43,9 +55,7 @@ function generateProfile() {
     generateNotFamousProfile(charAge, charGender);
   }
   // 
-  toggleBtns([restartBtn], true);
-  var charForm = removeAllChildNodes(chooseCharacterForm);
-
+  removeAllChildNodes(chooseCharacterForm, storageChooseCharForm);
   // add a button to save to computer, print, share on social
 }
 
@@ -93,7 +103,6 @@ function generateFamousProfile(charAge, charGender) {
   randomFamousPerson = Math.floor(Math.random()*gender.length);
   // Profile header
   profileHeader.innerText = 'Character profile ready:';
-  profileHeader.appendChild(document.createElement("hr"));
   // NAME
   profileName.innerHTML = "<strong>Name:</strong> " + gender[randomFamousPerson][0];
   // AGE
@@ -110,12 +119,13 @@ function generateFamousProfile(charAge, charGender) {
   profileQuirkyFact.innerHTML = "<strong>Quirky fact:</strong> " + gender[randomFamousPerson][5];
   // PROFESSION
   profileProfession.innerHTML = "<strong>Profession:</strong> " + gender[randomFamousPerson][6];  
+
+  toggleBtns([restartBtn], true);
 }
 
 function generateNotFamousProfile(charAge, charGender) {
   // Profile header
   profileHeader.innerText = 'Character profile ready:';
-  profileHeader.appendChild(document.createElement("hr"));
   // NAME
   profileName.innerHTML = "<strong>Name:</strong> " + generateName(charGender);
   // AGE
@@ -132,12 +142,43 @@ function generateNotFamousProfile(charAge, charGender) {
   profileQuirkyFact.innerHTML = "<strong>Quirky fact:</strong> " + QUIRKY_FACT[Math.floor(Math.random()*QUIRKY_FACT.length)];
   // PROFESSION
   profileProfession.innerHTML = "<strong>Profession:</strong> " + PROFESSION[Math.floor(Math.random()*PROFESSION.length)];  
+
+  toggleBtns([restartBtn], true);
 }
 
 function generateCreateOwnProfileForm(charAge, charGender) {
   // create form with profile fields blank, when submitted will return to 
   // profile page with character features
+  addRemovedChildNodes(createOwnCharacterForm, storageCreateOwnCharForm);
+  removeAllChildNodes(profileReadyContainer, storageProfileReadyCard);
 
+}
+
+function generateCreateOwnProfile(charAge, charGender) {
+  removeAllChildNodes(createOwnCharacterForm, storageCreateOwnCharForm);
+  addRemovedChildNodes(profileReadyContainer, storageProfileReadyCard);
+  
+  //*** this needs to be changed to the values entered into the createownform ***
+  // Profile header
+  profileHeader.innerText = 'Character profile ready:';
+  // NAME
+  profileName.innerHTML = "<strong>Name:</strong> " + generateName(charGender);
+  // AGE
+  profileAge.innerHTML = "<strong>Age:</strong> " + generateAge(charAge);
+  // HOROSCOPE
+  profileHoroscope.innerHTML = "<strong>Horoscope:</strong> " + HOROSCOPE[Math.floor(Math.random()*HOROSCOPE.length)];
+  // TYPE
+  profileType.innerHTML = "<strong>Type:</strong> Not Famous"; // select option value here
+  // BIO
+  profileBio.innerHTML = "<strong>Bio:</strong> " + generateBIO();
+  //ADJECTIVES
+  profileAdjectives.innerHTML = "<strong>Adjectives:</strong> " + POSITIVE_ADJECTIVE_LIST[Math.floor(Math.random()*POSITIVE_ADJECTIVE_LIST.length)] + "/" + NEGATIVE_ADJECTIVE_LIST[Math.floor(Math.random()*NEGATIVE_ADJECTIVE_LIST.length)];
+  // QUIRKY_FACT
+  profileQuirkyFact.innerHTML = "<strong>Quirky fact:</strong> " + QUIRKY_FACT[Math.floor(Math.random()*QUIRKY_FACT.length)];
+  // PROFESSION
+  profileProfession.innerHTML = "<strong>Profession:</strong> " + PROFESSION[Math.floor(Math.random()*PROFESSION.length)];  
+  
+  toggleBtns([restartBtn], true);
 }
 
 function generateName(gender) {
@@ -182,7 +223,7 @@ function generateBIO() {
 
 function clearProfile() {
   profileHeader.innerText = '';
-  removeAllChildNodes(profileHeader);
+  removeAllChildNodes(profileHeader, VOID_ARRAY_PROFILE_HEADER);
   profileName.innerText = '';
   profileAge.innerText = '';
   profileType.innerText = '';
@@ -193,7 +234,8 @@ function clearProfile() {
   profileProfession.innerText = '';
 
   toggleBtns([restartBtn], false);
-  addRemovedChildNodes(elementArray, chooseCharacterForm);
+  addRemovedChildNodes(chooseCharacterForm, storageChooseCharForm);
+  removeAllChildNodes(profileReadyContainer, storageProfileReadyCard);
 }
 
 function toggleBtns(btnsArray, on) { 
@@ -210,16 +252,16 @@ function toggleContainer() {
 
 }
 
-function removeAllChildNodes(parent) {
+function removeAllChildNodes(parent, storageArray) {
   while (parent.firstChild) {
       element = parent.removeChild(parent.firstChild);
-      elementArray.push(element);
+      storageArray.push(element);
   }
 }
 
-function addRemovedChildNodes(elemArray, parent) {
-  while (elemArray.length > 0) {
-    element = elemArray.shift();
+function addRemovedChildNodes(parent, storageArray) {
+  while (storageArray.length > 0) {
+    element = storageArray.shift();
     parent.appendChild(element);
   }
 }
