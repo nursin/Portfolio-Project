@@ -91,6 +91,8 @@
 
   <div class="container">
     <div class="row row-content">
+
+<!-- choose character features container-->
       <div id="chooseCharacterForm" class="col-12 col-lg-6">
         <h2>Choose character features:</h2>
         <hr />
@@ -156,6 +158,70 @@
         </form>
       </div>
 
+<!-- create your own character container-->
+      <div id="createOwnCharacterForm" class="col-12 col-lg-6">
+        <h2>Create your character:</h2>
+        <hr />
+
+        <form>
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label" for="createName">Name</label>
+            <div class="col-lg-9">
+              <input type="text" class="form-control" name="createName" id="createName" required>
+            </input>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label" for="createAge">Age</label>
+            <div class="col-lg-9">
+              <input type="text" class="form-control" name="createAge" id="createAge" required>
+            </input>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label" for="createHoroscope">Horoscope</label>
+            <div class="col-lg-9">
+              <input type="text" class="form-control" name="createHoroscope" id="createHoroscope" required>
+            </input>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label" for="createBio">Bio</label>
+            <div class="col-lg-9">
+              <textarea type="text" class="form-control" name="createBio" id="createBio" rows="5" required>
+              </textarea>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label" for="createAdjectives">Adjectives</label>
+            <div class="col-lg-9">
+              <input type="text" class="form-control" name="createAdjectives" id="createAdjectives" required>
+            </input>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label" for="createQuirkyFact">Quirky Fact</label>
+            <div class="col-lg-9">
+              <input type="text" class="form-control" name="createQuirkyFact" id="createQuirkyFact" required>
+            </input>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label" for="createProfession">Profession</label>
+            <div class="col-lg-9">
+              <input type="text" class="form-control" name="createProfession" id="createProfession" required>
+            </input>
+            </div>
+          </div>
+          <div class="form-group row mt-4">
+            <div class="col">
+                <button type="button" id="generateProfileBtn" class="btn btn-lg text-white bg-blue button-hover-bg-gradient"><i class="fa fa-transgender-alt fa-lg" aria-hidden="true"></i> Create</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+<!-- character profile ready container-->
       <div id="profileContainer" class="col-12">
         <h2 id="profileHeader"></h2>
         <div id="name" class="col-12"></div>

@@ -137,7 +137,7 @@ function generateNotFamousProfile(charAge, charGender) {
 function generateCreateOwnProfileForm(charAge, charGender) {
   // create form with profile fields blank, when submitted will return to 
   // profile page with character features
-  
+
 }
 
 function generateName(gender) {
@@ -204,6 +204,10 @@ function toggleBtns(btnsArray, on) {
           btnsArray[btn].style.display = "none";
       }
   }
+}
+
+function toggleContainer() {
+
 }
 
 function removeAllChildNodes(parent) {
