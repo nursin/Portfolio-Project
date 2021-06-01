@@ -31,33 +31,26 @@ function generateProfile() {
   // Profile header
   profileHeader.innerText = 'Character profile ready:';
   profileHeader.appendChild(document.createElement("hr"));
-  // NAME
-  profileName.innerHTML = "<strong>Name:</strong> " + generateName(charGender);
-  // AGE
-  profileAge.innerHTML = "<strong>Age:</strong> " + generateAge(charAge);
-  // HOROSCOPE
-  profileHoroscope.innerHTML = "<strong>Horoscope:</strong> " + HOROSCOPE[Math.floor(Math.random()*HOROSCOPE.length)];
-  // TYPE
-  profileType.innerHTML = "<strong>Type:</strong> " + charType.charAt(0).toUpperCase() + charType.slice(1); // select option value here
-  // BIO
-  profileBio.innerHTML = "<strong>Bio:</strong> " + generateBIO();
-  //ADJECTIVES
-  profileAdjectives.innerHTML = "<strong>Adjectives:</strong> " + POSITIVE_ADJECTIVE_LIST[Math.floor(Math.random()*POSITIVE_ADJECTIVE_LIST.length)] + "/" + NEGATIVE_ADJECTIVE_LIST[Math.floor(Math.random()*NEGATIVE_ADJECTIVE_LIST.length)];
-  // QUIRKY_FACT
-  profileQuirkyFact.innerHTML = "<strong>Quirky fact:</strong> " + QUIRKY_FACT[Math.floor(Math.random()*QUIRKY_FACT.length)];
-  // PROFESSION
-  profileProfession.innerHTML = "<strong>Profession:</strong> " + PROFESSION[Math.floor(Math.random()*PROFESSION.length)];
 
+  if (charType == 'famous'){
+    // run famous profile
+    generateFamousProfile(charAge, charGender);
+  } else if (charType == 'notFamous'){
+    // run notfamous profile random selection profile
+    generateNotFamousProfile(charAge, charGender);
+  } else if (charType == 'createYourOwn') {
+    // create your own profile form appears
+    generateCreateOwnProfileForm(charAge, charGender);
+  } else {
+    // if no selection on type run notfamous
+    generateNotFamousProfile(charAge, charGender);
+  }
+  // 
   toggleBtns([restartBtn], true);
   var charForm = removeAllChildNodes(chooseCharacterForm);
+
+  // add a button to save to computer, print, share on social
 }
-
-
-// build each random generator function that will generate each profile or profile attribute in the previous profile object
-
-
-// build a function that will attached the profile to the DOM
-
 
 // create each list of attributes to randomly choose from
 const NAMES_MALE = ['Jacob','Michael','Ethan','Joshua','Daniel','Alexander','Anthony','William','Christopher','Matthew','Jayden','Andrew','Joseph','David','Noah','Aiden','James','Ryan','Logan','John','Nathan','Elijah','Christian','Gabriel','Benjamin','Jonathan','Tyler','Samuel','Nicholas','Gavin','Dylan','Jackson','Brandon','Caleb','Mason','Angel','Isaac','Evan','Jack','Kevin','Jose','Isaiah','Luke','Landon','Justin','Lucas','Zachary','Jordan','Robert','Aaron','Brayden','Thomas','Cameron','Hunter','Austin','Adrian','Connor','Owen','Aidan','Jason','Julian','Wyatt','Charles','Luis','Carter','Juan','Chase','Diego','Jeremiah','Brody','Xavier','Adam','Carlos','Sebastian','Liam','Hayden','Nathaniel','Henry','Jesus','Ian','Tristan','Bryan','Sean','Cole','Alex','Eric','Brian','Jaden','Carson','Blake','Ayden','Cooper','Dominic','Brady','Caden','Josiah','Kyle','Colton','Kaden','Eli','Miguel','Antonio','Parker','Steven','Alejandro','Riley','Richard','Timothy','Devin','Jesse','Victor','Jake','Joel','Colin','Kaleb','Bryce','Levi','Oliver','Oscar','Vincent','Ashton','Cody','Micah','Preston','Marcus','Max','Patrick','Seth','Jeremy','Peyton','Nolan','Ivan','Damian','Maxwell','Alan','Kenneth','Jonah','Jorge','Mark','Giovanni','Eduardo','Grant','Collin','Gage','Omar','Emmanuel','Trevor','Edward','Ricardo','Cristian','Nicolas','Kayden','George','Jaxon','Paul','Braden','Elias','Andres','Derek','Garrett','Tanner','Malachi','Conner','Fernando','Cesar','Javier','Miles','Jaiden','Alexis','Leonardo','Santiago','Francisco','Cayden','Shane','Edwin','Hudson','Travis','Bryson','Erick','Jace','Hector','Josue','Peter','Jaylen','Mario','Manuel','Abraham','Grayson','Damien','Kaiden','Spencer','Stephen','Edgar','Wesley','Shawn','Trenton','Jared','Jeffrey','Landen','Johnathan','Bradley','Braxton','Ryder','Camden','Roman','Asher','Brendan','Maddox','Sergio','Israel','Andy','Lincoln','Erik','Donovan','Raymond','Avery','Rylan','Dalton','Harrison','Andre','Martin','Keegan','Marco','Jude','Sawyer','Dakota','Leo','Calvin','Kai','Drake','Troy','Zion','Clayton','Roberto','Zane','Gregory','Tucker','Rafael','Kingston','Dominick','Ezekiel','Griffin','Devon','Drew','Lukas','Johnny','Ty','Pedro','Tyson','Caiden','Mateo','Braylon','Cash','Aden','Chance','Taylor','Marcos','Maximus','Ruben','Emanuel','Simon','Corbin','Brennan','Dillon','Skyler','Myles','Xander','Jaxson','Dawson','Kameron','Kyler','Axel','Colby','Jonas','Joaquin','Payton','Brock','Frank','Enrique','Quinn','Emilio','Malik','Grady','Angelo','Julio','Derrick','Raul','Fabian','Corey','Gerardo','Dante','Ezra','Armando','Allen','Theodore','Gael','Amir','Zander','Adan','Maximilian','Randy','Easton','Dustin','Luca','Phillip','Julius','Charlie','Ronald','Jakob','Cade','Brett','Trent','Silas','Keith','Emiliano','Trey','Jalen','Darius','Lane','Jerry','Jaime','Scott','Graham','Weston','Braydon','Anderson','Rodrigo','Pablo','Saul','Danny','Donald','Elliot','Brayan','Dallas','Lorenzo','Casey','Mitchell','Alberto','Tristen','Rowan','Jayson','Gustavo','Aaden','Amari','Dean','Braeden','Declan','Chris','Ismael','Dane','Louis','Arturo','Brenden','Felix','Jimmy','Cohen','Tony','Holden','Reid','Abel','Bennett','Zackary','Arthur','Nehemiah','Ricky','Esteban','Cruz','Finn','Mauricio','Dennis','Keaton','Albert','Marvin','Mathew','Larry','Moises','Issac','Philip','Quentin','Curtis','Greyson','Jameson','Everett','Jayce','Darren','Elliott','Uriel','Alfredo','Hugo','Alec','Jamari','Marshall','Walter','Judah','Jay','Lance','Beau','Ali','Landyn','Yahir','Phoenix','Nickolas','Kobe','Bryant','Maurice','Russell','Leland','Colten','Reed','Davis','Joe','Ernesto','Desmond','Kade','Reece','Morgan','Ramon','Rocco','Orlando','Ryker','Brodie','Paxton','Jacoby','Douglas','Kristopher','Gary','Lawrence','Izaiah','Solomon','Nikolas','Mekhi','Justice','Tate','Jaydon','Salvador','Shaun','Alvin','Eddie','Kane','Davion','Zachariah','Dorian','Titus','Kellen','Camron','Isiah','Javon','Nasir','Milo','Johan','Byron','Jasper','Jonathon','Chad','Marc','Kelvin','Chandler','Sam','Cory','Deandre','River','Reese','Roger','Quinton','Talon','Romeo','Franklin','Noel','Alijah','Guillermo','Gunner','Damon','Jadon','Emerson','Micheal','Bruce','Terry','Kolton','Melvin','Beckett','Porter','August','Brycen','Dayton','Jamarion','Leonel','Karson','Zayden','Keagan','Carl','Khalil','Cristopher','Nelson','Braiden','Moses','Isaias','Roy','Triston','Walker','Kale','Jermaine','Leon','Rodney','Kristian','Mohamed','Ronan','Pierce','Trace','Warren','Jeffery','Maverick','Cyrus','Quincy','Nathanael','Skylar','Tommy','Conor','Noe','Ezequiel','Demetrius','Jaylin','Kendrick','Frederick','Terrance','Bobby','Jamison','Jon','Rohan','Jett','Kieran','Tobias','Ari','Colt','Gideon','Felipe','Kenny','Wilson','Orion','Kamari','Gunnar','Jessie','Alonzo','Gianni','Omari','Waylon','Malcolm','Emmett','Abram','Julien','London','Tomas','Allan','Terrell','Matteo','Tristin','Jairo','Reginald','Brent','Ahmad','Yandel','Rene','Willie','Boston','Billy','Marlon','Trevon','Aydan','Jamal','Aldo','Ariel','Cason','Braylen','Javion','Joey','Rogelio','Ahmed','Dominik','Brendon','Toby','Kody','Marquis','Ulises','Armani','Adriel','Alfonso','Branden','Will','Craig','Ibrahim','Osvaldo','Wade','Harley','Steve','Davin','Deshawn','Kason','Damion','Jaylon','Jefferson','Aron','Brooks','Darian','Gerald','Rolando','Terrence','Enzo','Kian','Ryland','Barrett','Jaeden','Ben','Bradyn','Giovani','Blaine','Madden','Jerome','Muhammad','Ronnie','Layne','Kolby','Leonard','Vicente','Cale','Alessandro','Zachery','Gavyn','Aydin','Xzavier','Malakai','Raphael','Cannon','Rudy','Asa','Darrell','Giancarlo','Elisha','Junior','Zackery','Alvaro','Lewis','Valentin','Deacon','Jase','Harry','Kendall','Rashad','Finnegan','Mohammed','Ramiro','Cedric','Brennen','Santino','Stanley','Tyrone','Chace','Francis','Johnathon','Teagan','Zechariah','Alonso','Kaeden','Kamden','Gilberto','Ray','Karter','Luciano','Nico','Kole','Aryan','Draven','Jamie','Misael','Lee','Alexzander','Camren','Giovanny','Amare','Rhett','Rhys','Rodolfo','Nash','Markus','Deven','Mohammad','Moshe','Quintin','Dwayne','Memphis','Atticus','Davian','Eugene','Jax','Antoine','Wayne','Randall','Semaj','Uriah','Clark','Aidyn','Jorden','Maxim','Aditya','Lawson','Messiah','Korbin','Sullivan','Freddy','Demarcus','Neil','Brice','King','Davon','Elvis','Ace','Dexter','Heath','Duncan','Jamar','Sincere','Irvin','Remington','Kadin','Soren','Tyree','Damarion','Talan','Adrien','Gilbert','Keenan','Darnell','Adolfo','Tristian','Derick','Isai','Rylee','Gauge','Harold','Kareem','Deangelo','Agustin','Coleman','Zavier','Lamar','Emery','Jaydin','Devan','Jordyn','Mathias','Prince','Sage','Seamus','Jasiah','Efrain','Darryl','Arjun','Mike','Roland','Conrad','Kamron','Hamza','Santos','Frankie','Dominique','Marley','Vance','Dax','Jamir','Kylan','Todd','Maximo','Jabari','Matthias','Haiden','Luka','Marcelo','Keon','Layton','Tyrell','Kash','Raiden','Cullen','Donte','Jovani','Cordell','Kasen','Rory','Alfred','Darwin','Ernest','Bailey','Gaige','Hassan','Jamarcus','Killian','Augustus','Trevin','Zain','Ellis','Rex','Yusuf','Bruno','Jaidyn','Justus','Ronin','Humberto','Jaquan','Josh','Kasey','Winston','Dashawn','Lucian','Matias','Sidney','Ignacio','Nigel','Van','Elian','Finley','Jaron','Addison','Aedan','Braedon','Jadyn','Konner','Zayne','Franco','Niko','Savion','Cristofer','Deon','Krish','Anton','Brogan','Cael','Coby','Kymani','Marcel','Yair','Dale','Bo','Jordon','Samir','Darien','Zaire','Ross','Vaughn','Devyn','Kenyon','Clay','Dario','Ishaan','Jair','Kael','Adonis','Jovanny','Clinton','Rey','Chaim','German','Harper','Nathen','Rigoberto','Sonny','Glenn','Octavio','Blaze','Keshawn','Ralph','Ean','Nikhil','Rayan','Sterling','Branson','Jadiel','Dillan','Jeramiah','Koen','Konnor','Antwan','Houston','Tyrese','Dereon','Leonidas','Zack','Fisher','Jaydan','Quinten','Nick','Urijah','Darion','Jovan','Salvatore','Beckham','Jarrett','Antony','Eden','Makai','Zaiden','Broderick','Camryn','Malaki','Nikolai','Howard','Immanuel','Demarion','Valentino','Jovanni','Ayaan','Ethen','Leandro','Royce','Yael','Yosef','Jean','Marquise','Alden','Leroy','Gaven','Jovany','Tyshawn','Aarav','Kadyn','Milton','Zaid','Kelton','Tripp','Kamren','Slade','Hezekiah','Jakobe','Nathanial','Rishi','Shamar','Geovanni','Pranav','Roderick','Bentley','Clarence','Lyric','Bernard','Carmelo','Denzel','Maximillian','Reynaldo','Cassius','Gordon','Reuben','Samson','Yadiel','Jayvon','Reilly','Sheldon','Abdullah','Jagger','Thaddeus','Case','Kyson','Lamont','Chaz','Makhi','Jan','Marques','Oswaldo','Donavan','Keyon','Kyan','Simeon','Trystan','Andreas','Dangelo','Landin','Reagan','Turner','Arnav','Brenton','Callum','Jayvion','Bridger','Sammy','Deegan','Jaylan','Lennon','Odin','Abdiel','Jerimiah','Eliezer','Bronson','Cornelius','Pierre','Cortez','Baron','Carlo','Carsen','Fletcher','Izayah','Kolten','Damari','Hugh','Jensen','Yurem'];
@@ -74,11 +67,60 @@ const NEGATIVE_ADJECTIVE_LIST = ['Aggressive', 'Arrogant', 'Boring', 'Careless',
 
 const PROFESSION = ['Accountant', 'Actor', 'Administrator', 'Aerospace Engineer', 'Agricultural Engineer', 'Anthropologist', 'Architect', 'Astronomer', 'Auditor', 'Banking Analyst', 'Bartender', 'Biologist', 'Blacksmiths', 'Broker', 'Buyer', 'Carpenter', 'Chef', 'Chemist', 'Childcare Worker', 'Civil Engineer', 'Clergy', 'Computer Scientist', 'Conservation Worker', 'Construction Worker', 'Cook', 'Cosmetologist', 'Craftsperson', 'Customer Experience Design', 'Data Analyst', 'Data Scientist', 'Dental Assistant', 'Development Manager', 'Ecommerce Seller', 'Electrical Engineer', 'Emergency Medical Technician', 'Engineer', 'Environmental Engineer', 'Epidemiologist', 'Event Planner', 'Farmer', 'Financial Analyst', 'Financial Manager', 'Fishery Worker', 'Flight Attendant', 'Forestry Worker', 'Game Designer', 'General Manager', 'Government Worker', 'Health Educator', 'Hotel Manager', 'Import/Export Specialist', 'Information Design', 'Information Technology Manager', 'Interpreter', 'Laboratory Technician', 'Landscape Architect', 'Lawyer', 'Librarian', 'Logistics Engineer', 'Manicurists', 'Manufacturing Worker', 'Mathematician', 'Medical Administration', 'Medical Technician', 'Mental Health Counselor', 'Miner', 'Nanny', 'Nurse', 'Occupational Therapist', 'Operations Analyst', 'Optometrist', 'Personal Care Aid', 'Photographer', 'Physicist', 'Plumber', 'Politician', 'Product Design', 'Professor', 'Project Manager', 'Property Manager', 'Purchasing Manager', 'Quality Control Analyst', 'Reporter', 'Restaurant Manager', 'Robotics Engineer', 'Sales Manager', 'Scientist', 'Service Manager', 'Small Business Owner', 'Sociologist', 'Software Developer', 'Space Scientist', 'Steel Worker', 'Supervisor', 'Surveyor', 'Systems Analyst', 'Teacher', 'Technical Writer', 'Technology Architect', 'Tour Guide', 'Transportation Engineer', 'Tutor', 'Veterinarian', 'Waiter', 'Wind Energy Engineer', 'Zoologist', 'vengeful', 'vulgar', 'weak-willed', 'Accountant', 'Actuary', 'Advertising Manager', 'Agent', 'Air Traffic Controller', 'Archeologist', 'Art Director', 'Athlete', 'Baker', 'Barista', 'Bioinformatics Scientist', 'Biomedical Engineer', 'Board Member', 'Business Analyst', 'Captain naval', 'Cashier', 'Chemical Engineer', 'Chief Executive', 'Choreographer', 'Cleaner', 'Compliance Manager', 'Concierge', 'Construction Manager', 'Consultant', 'Copywriter', 'Courier', 'Curator', 'Customer Service', 'Data Architect', 'Database Administrator', 'Dentist', 'Director', 'Economist', 'Electrician', 'Energy Engineer', 'Entrepreneur', 'Environmental Science', 'Equipment Operator', 'Executive Management', 'Fashion Designer', 'Financial Controller', 'Firefighter', 'Fitness Trainer', 'Floral Designer', 'Funeral Attendant', 'Gardener', 'Geographer', 'Hair Stylist', 'Homemaker', 'Human Resources', 'Industrial Design', 'Information Scientist', 'Installation & Maintenance', 'Journalist', 'Laborer', 'Landscaping', 'Legal Secretary', 'Lifeguard', 'Management Consultant', 'Manufacturing Engineer', 'Marketing Analyst', 'Mechanical Engineer', 'Medical Assistant', 'Medical Technologist', 'Midwife', 'Musician', 'Network Administrator', 'Occupational Health & Safety', 'Office Clerk', 'Operations Manager', 'Performance Artist', 'Pharmacist', 'Physician', 'Pilot', 'Police Officer', 'Producer', 'Production Manager', 'Program Manager', 'Promotion Manager', 'Public Relations', 'Quality Assurance Manager', 'Railroad Engineer', 'Researcher', 'Rigger', 'Sales Engineer', 'Salesperson', 'Service Attendant', 'Shop Salesperson', 'Social Worker', 'Software Architect', 'Solar Energy Technician', 'Statistician', 'Stonemason', 'Surgeon', 'System Administrator', 'Tailor', 'Technical Support', 'Technician', 'Testing Engineer', 'Translator', 'Truck Driver', 'Urban Design', 'Visual Designer', 'Web Developer', 'Writer'];
 
-
-// horoscope should match dob maybe? could be funny
 const HOROSCOPE = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'];
 
 const QUIRKY_FACT = ['I make babies cry for good luck', 'I sleep with one eye open', 'I turn dead bodies into ocean reefs', 'I ride a flying bicycle', 'I have a 916 pound padlock', 'I poop most of what I eat'];
+
+// famous people array
+const FAMOUS_FEMALES = [['Michelle Obama', '57', 'Capricorn', 'Michelle Obama is a lawyer and writer who was the first lady of the United States from 2009 to 2017. She is the wife of the 44th U.S. president, Barack Obama. As first lady, Michelle focused her attention on social issues such as poverty, healthy living and education. She loved the idea that she can continue to learn, grow, and change for the rest of her life.', 'Classy/Hard working', 'She has also seen The Brady Bunch so many times, she memorized the scripts of each episode.', 'Lawyer, Writer'], ['Michelle Obama 1', '57', 'Capricorn', 'Michelle Obama is a lawyer and writer who was the first lady of the United States from 2009 to 2017. She is the wife of the 44th U.S. president, Barack Obama. As first lady, Michelle focused her attention on social issues such as poverty, healthy living and education. She loved the idea that she can continue to learn, grow, and change for the rest of her life.', 'Classy/Hard working', 'She has also seen The Brady Bunch so many times, she memorized the scripts of each episode.', 'Lawyer, Writer'], ['Michelle Obama 2', '57', 'Capricorn', 'Michelle Obama is a lawyer and writer who was the first lady of the United States from 2009 to 2017. She is the wife of the 44th U.S. president, Barack Obama. As first lady, Michelle focused her attention on social issues such as poverty, healthy living and education. She loved the idea that she can continue to learn, grow, and change for the rest of her life.', 'Classy/Hard working', 'She has also seen The Brady Bunch so many times, she memorized the scripts of each episode.', 'Lawyer, Writer']];
+
+const FAMOUS_MALES = [];
+
+const FAMOUS_UNISEX = [];
+
+function generateFamousProfile(charAge, charGender) {
+  // make array of famous profiles and pull one randomly when called
+  // NAME
+  profileName.innerHTML = "<strong>Name:</strong> " + FAMOUS_FEMALES[Math.floor(Math.random()*FAMOUS_FEMALES.length)][0];
+  // AGE
+  profileAge.innerHTML = "<strong>Age:</strong> " + FAMOUS_FEMALES[Math.floor(Math.random()*FAMOUS_FEMALES.length)][1];
+  // HOROSCOPE
+  profileHoroscope.innerHTML = "<strong>Horoscope:</strong> " + FAMOUS_FEMALES[Math.floor(Math.random()*FAMOUS_FEMALES.length)][2];
+  // TYPE
+  profileType.innerHTML = "<strong>Type:</strong> Famous"; // select option value here
+  // BIO
+  profileBio.innerHTML = "<strong>Bio:</strong> " + FAMOUS_FEMALES[Math.floor(Math.random()*FAMOUS_FEMALES.length)][3];
+  //ADJECTIVES
+  profileAdjectives.innerHTML = "<strong>Adjectives:</strong> " + FAMOUS_FEMALES[Math.floor(Math.random()*FAMOUS_FEMALES.length)][4];
+  // QUIRKY_FACT
+  profileQuirkyFact.innerHTML = "<strong>Quirky fact:</strong> " + FAMOUS_FEMALES[Math.floor(Math.random()*FAMOUS_FEMALES.length)][5];
+  // PROFESSION
+  profileProfession.innerHTML = "<strong>Profession:</strong> " + FAMOUS_FEMALES[Math.floor(Math.random()*FAMOUS_FEMALES.length)][6];  
+}
+
+function generateNotFamousProfile(charAge, charGender) {
+  // NAME
+  profileName.innerHTML = "<strong>Name:</strong> " + generateName(charGender);
+  // AGE
+  profileAge.innerHTML = "<strong>Age:</strong> " + generateAge(charAge);
+  // HOROSCOPE
+  profileHoroscope.innerHTML = "<strong>Horoscope:</strong> " + HOROSCOPE[Math.floor(Math.random()*HOROSCOPE.length)];
+  // TYPE
+  profileType.innerHTML = "<strong>Type:</strong> Not Famous"; // select option value here
+  // BIO
+  profileBio.innerHTML = "<strong>Bio:</strong> " + generateBIO();
+  //ADJECTIVES
+  profileAdjectives.innerHTML = "<strong>Adjectives:</strong> " + POSITIVE_ADJECTIVE_LIST[Math.floor(Math.random()*POSITIVE_ADJECTIVE_LIST.length)] + "/" + NEGATIVE_ADJECTIVE_LIST[Math.floor(Math.random()*NEGATIVE_ADJECTIVE_LIST.length)];
+  // QUIRKY_FACT
+  profileQuirkyFact.innerHTML = "<strong>Quirky fact:</strong> " + QUIRKY_FACT[Math.floor(Math.random()*QUIRKY_FACT.length)];
+  // PROFESSION
+  profileProfession.innerHTML = "<strong>Profession:</strong> " + PROFESSION[Math.floor(Math.random()*PROFESSION.length)];  
+}
+
+function generateCreateOwnProfileForm(charAge, charGender) {
+  // create form with profile fields blank, when submitted will return to 
+  // profile page with character features
+}
 
 function generateName(gender) {
   if (gender == 'male') {
