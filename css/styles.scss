@@ -76,3 +76,9 @@ color: $color-text-white;
 .button-hover-bg-gradient:hover {
 background-image: linear-gradient(to right, $color-secondary, $color-mid, $color-primary);
 }
+
+.custom-card {
+  border-width: 1rem;
+  border-radius: 3rem;
+  border-color: $color-primary;
+}

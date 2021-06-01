@@ -49,3 +49,8 @@ header h2 {
 
 .button-hover-bg-gradient:hover {
   background-image: linear-gradient(to right, #dd37b9, #8a30c5, #2904ff); }
+
+.custom-card {
+  border-width: 1rem;
+  border-radius: 3rem;
+  border-color: #2904ff; }
