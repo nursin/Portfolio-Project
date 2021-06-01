@@ -28,9 +28,6 @@ function generateProfile() {
   const charAge = document.getElementById('charAge').value;
   const charType = document.getElementById('charType').value;
 
-  // Profile header
-  profileHeader.innerText = 'Character profile ready:';
-  profileHeader.appendChild(document.createElement("hr"));
 
   if (charType == 'famous'){
     // run famous profile
@@ -72,33 +69,53 @@ const HOROSCOPE = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra
 const QUIRKY_FACT = ['I make babies cry for good luck', 'I sleep with one eye open', 'I turn dead bodies into ocean reefs', 'I ride a flying bicycle', 'I have a 916 pound padlock', 'I poop most of what I eat'];
 
 // famous people array
-const FAMOUS_FEMALES = [['Michelle Obama', '57', 'Capricorn', 'Michelle Obama is a lawyer and writer who was the first lady of the United States from 2009 to 2017. She is the wife of the 44th U.S. president, Barack Obama. As first lady, Michelle focused her attention on social issues such as poverty, healthy living and education. She loved the idea that she can continue to learn, grow, and change for the rest of her life.', 'Classy/Hard working', 'She has also seen The Brady Bunch so many times, she memorized the scripts of each episode.', 'Lawyer, Writer'], ['Michelle Obama 1', '57', 'Capricorn', 'Michelle Obama is a lawyer and writer who was the first lady of the United States from 2009 to 2017. She is the wife of the 44th U.S. president, Barack Obama. As first lady, Michelle focused her attention on social issues such as poverty, healthy living and education. She loved the idea that she can continue to learn, grow, and change for the rest of her life.', 'Classy/Hard working', 'She has also seen The Brady Bunch so many times, she memorized the scripts of each episode.', 'Lawyer, Writer'], ['Michelle Obama 2', '57', 'Capricorn', 'Michelle Obama is a lawyer and writer who was the first lady of the United States from 2009 to 2017. She is the wife of the 44th U.S. president, Barack Obama. As first lady, Michelle focused her attention on social issues such as poverty, healthy living and education. She loved the idea that she can continue to learn, grow, and change for the rest of her life.', 'Classy/Hard working', 'She has also seen The Brady Bunch so many times, she memorized the scripts of each episode.', 'Lawyer, Writer']];
+const FAMOUS_FEMALES = [['Michelle Obama', '57', 'Capricorn', 'Michelle Obama is a lawyer and writer who was the first lady of the United States from 2009 to 2017. She is the wife of the 44th U.S. president, Barack Obama. As first lady, Michelle focused her attention on social issues such as poverty, healthy living and education. She loved the idea that she can continue to learn, grow, and change for the rest of her life.', 'Classy/Hard working', 'She has also seen The Brady Bunch so many times, she memorized the scripts of each episode.', 'Lawyer, Writer'], ['Kim Kardashian', '40', 'Libra', 'Kim Kardashian catapulted into fame when a scandalous video showcasing her sexual exploits with former boyfriend, rapper Ray J., was leaked online. Since then she has been able to capitalize on her fame with her curvaceous style, a hit reality TV show, and a string of workout DVDs. In 2006, she opened the boutique D-A-S-H with her sisters, Kourtney and Khloé. In 2014 she famously married rapper Kanye West.', 'Sweet/Smart', 'She doesn’t fear bees and would even hold and play with them when she was younger. Plus, she’s never been stung.', 'Media personality, Socialite, Model']];
 
-const FAMOUS_MALES = [];
+const FAMOUS_MALES = [['Barack Obama', '59', 'Leo', 'Barack Obama was the 44th president of the United States and the first African American commander-in-chief. He served two terms, in 2008 and 2012. The son of parents from Kenya and Kansas, Obama was born and raised in Hawaii. He graduated from Columbia University and Harvard Law School, where he was president of the Harvard Law Review. After serving on the Illinois State Senate, he was elected a U.S. senator representing Illinois in 2004. He and wife Michelle Obama have two daughters, Malia and Sasha. ', 'Intelligent/Change', 'Obama was the eighth U.S. president in history who was known to be left-handed.', 'Politician, Lawyer, Author']];
 
-const FAMOUS_UNISEX = [];
+const FAMOUS_UNISEX = [['Elton John', '74', 'Aries', 'Barack Obama was the 44th president of the United States and the first African American commander-in-chief. He served two terms, in 2008 and 2012. The son of parents from Kenya and Kansas, Obama was born and raised in Hawaii. He graduated from Columbia University and Harvard Law School, where he was president of the Harvard Law Review. After serving on the Illinois State Senate, he was elected a U.S. senator representing Illinois in 2004. He and wife Michelle Obama have two daughters, Malia and Sasha. ', 'Intelligent/Change', 'Obama was the eighth U.S. president in history who was known to be left-handed.', 'Singer, Songwriter, Pianist']];
 
 function generateFamousProfile(charAge, charGender) {
   // make array of famous profiles and pull one randomly when called
+  var gender;
+  
+  if (charGender == 'male') {
+    gender = FAMOUS_MALES;
+  } else if (charGender == 'female') {
+    gender = FAMOUS_FEMALES;
+  } else if (charGender == 'androgen' || charGender == 'neutral') {
+    gender = FAMOUS_UNISEX;
+  } else {
+    const GENDER_LIST = [FAMOUS_MALES, FAMOUS_FEMALES, FAMOUS_UNISEX];
+    gender = GENDER_LIST[Math.floor(Math.random()*GENDER_LIST.length)];
+  } 
+  
+  randomFamousPerson = Math.floor(Math.random()*gender.length);
+  // Profile header
+  profileHeader.innerText = 'Character profile ready:';
+  profileHeader.appendChild(document.createElement("hr"));
   // NAME
-  profileName.innerHTML = "<strong>Name:</strong> " + FAMOUS_FEMALES[Math.floor(Math.random()*FAMOUS_FEMALES.length)][0];
+  profileName.innerHTML = "<strong>Name:</strong> " + gender[randomFamousPerson][0];
   // AGE
-  profileAge.innerHTML = "<strong>Age:</strong> " + FAMOUS_FEMALES[Math.floor(Math.random()*FAMOUS_FEMALES.length)][1];
+  profileAge.innerHTML = "<strong>Age:</strong> " + gender[randomFamousPerson][1];
   // HOROSCOPE
-  profileHoroscope.innerHTML = "<strong>Horoscope:</strong> " + FAMOUS_FEMALES[Math.floor(Math.random()*FAMOUS_FEMALES.length)][2];
+  profileHoroscope.innerHTML = "<strong>Horoscope:</strong> " + gender[randomFamousPerson][2];
   // TYPE
   profileType.innerHTML = "<strong>Type:</strong> Famous"; // select option value here
   // BIO
-  profileBio.innerHTML = "<strong>Bio:</strong> " + FAMOUS_FEMALES[Math.floor(Math.random()*FAMOUS_FEMALES.length)][3];
+  profileBio.innerHTML = "<strong>Bio:</strong> " + gender[randomFamousPerson][3];
   //ADJECTIVES
-  profileAdjectives.innerHTML = "<strong>Adjectives:</strong> " + FAMOUS_FEMALES[Math.floor(Math.random()*FAMOUS_FEMALES.length)][4];
+  profileAdjectives.innerHTML = "<strong>Adjectives:</strong> " + gender[randomFamousPerson][4];
   // QUIRKY_FACT
-  profileQuirkyFact.innerHTML = "<strong>Quirky fact:</strong> " + FAMOUS_FEMALES[Math.floor(Math.random()*FAMOUS_FEMALES.length)][5];
+  profileQuirkyFact.innerHTML = "<strong>Quirky fact:</strong> " + gender[randomFamousPerson][5];
   // PROFESSION
-  profileProfession.innerHTML = "<strong>Profession:</strong> " + FAMOUS_FEMALES[Math.floor(Math.random()*FAMOUS_FEMALES.length)][6];  
+  profileProfession.innerHTML = "<strong>Profession:</strong> " + gender[randomFamousPerson][6];  
 }
 
 function generateNotFamousProfile(charAge, charGender) {
+  // Profile header
+  profileHeader.innerText = 'Character profile ready:';
+  profileHeader.appendChild(document.createElement("hr"));
   // NAME
   profileName.innerHTML = "<strong>Name:</strong> " + generateName(charGender);
   // AGE
@@ -120,6 +137,7 @@ function generateNotFamousProfile(charAge, charGender) {
 function generateCreateOwnProfileForm(charAge, charGender) {
   // create form with profile fields blank, when submitted will return to 
   // profile page with character features
+  
 }
 
 function generateName(gender) {
@@ -202,9 +220,7 @@ function addRemovedChildNodes(elemArray, parent) {
   }
 }
 
-// create a list of famous profiles or famous attributes to add to a famous character
-
-// build a function to create and store a create your own profile, allow this profile to be used by the attaching to the dom function
+// build a function to create and store a create your own profile
 
 // build a function that will allow users to search the current lists of characters by keywords
 
