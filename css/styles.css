@@ -53,4 +53,7 @@ header h2 {
 .custom-card {
   border-width: 1rem;
   border-radius: 3rem;
-  border-color: #2904ff; }
+  border-color: #8a30c5; }
+
+.card-header {
+  border-radius: 2rem 2rem 0 0 !important; }

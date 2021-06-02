@@ -80,5 +80,9 @@ background-image: linear-gradient(to right, $color-secondary, $color-mid, $color
 .custom-card {
   border-width: 1rem;
   border-radius: 3rem;
-  border-color: $color-primary;
+  border-color: $color-mid;
+}
+
+.card-header {
+  border-radius: 2rem 2rem 0 0 !important;
 }

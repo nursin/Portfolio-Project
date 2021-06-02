@@ -4,6 +4,15 @@ var storageCreateOwnCharForm = [];
 var storageProfileReadyCard = [];
 var VOID_ARRAY_PROFILE_HEADER =[];
 
+var createName;
+var createAge;
+var createHoroscope;
+var createBio;
+var createAdjectives;
+var createQuirkyFact;
+var createProfession;
+
+
 
 const generateProfileBtn = document.querySelector('#generateProfileBtn');
 const clearProfileBtn = document.querySelector('#restartBtn');
@@ -21,6 +30,7 @@ const chooseCharacterForm = document.querySelector('#chooseCharacterForm');
 const createOwnCharacterForm = document.querySelector('#createOwnCharacterForm');
 const generateCreateOwnProfileBtn = document.querySelector('#generateCreateOwnProfileBtn');
 const profileReadyContainer = document.querySelector('#profileReadyContainer');
+
 
 
 generateCreateOwnProfileBtn.addEventListener('click', generateCreateOwnProfile);
@@ -49,7 +59,7 @@ function generateProfile() {
     generateNotFamousProfile(charAge, charGender);
   } else if (charType == 'createYourOwn') {
     // create your own profile form appears
-    generateCreateOwnProfileForm(charAge, charGender);
+    generateCreateOwnProfileForm();
   } else {
     // if no selection on type run notfamous
     generateNotFamousProfile(charAge, charGender);
@@ -146,7 +156,7 @@ function generateNotFamousProfile(charAge, charGender) {
   toggleBtns([restartBtn], true);
 }
 
-function generateCreateOwnProfileForm(charAge, charGender) {
+function generateCreateOwnProfileForm() {
   // create form with profile fields blank, when submitted will return to 
   // profile page with character features
   addRemovedChildNodes(createOwnCharacterForm, storageCreateOwnCharForm);
@@ -154,29 +164,39 @@ function generateCreateOwnProfileForm(charAge, charGender) {
 
 }
 
-function generateCreateOwnProfile(charAge, charGender) {
+function generateCreateOwnProfile() {
+  
+  createName = document.getElementById('createName').value;
+  createAge = document.getElementById('createAge').value;
+  createHoroscope = document.getElementById('createHoroscope').value;
+  createBio = document.getElementById('createBio').value;
+  createAdjectives = document.getElementById('createAdjectives').value;
+  createQuirkyFact = document.getElementById('createQuirkyFact').value;
+  createProfession = document.getElementById('createProfession').value;
+
   removeAllChildNodes(createOwnCharacterForm, storageCreateOwnCharForm);
   addRemovedChildNodes(profileReadyContainer, storageProfileReadyCard);
-  
+
+
   //*** this needs to be changed to the values entered into the createownform ***
   // Profile header
   profileHeader.innerText = 'Character profile ready:';
   // NAME
-  profileName.innerHTML = "<strong>Name:</strong> " + generateName(charGender);
+  profileName.innerHTML = "<strong>Name:</strong> " + createName;
   // AGE
-  profileAge.innerHTML = "<strong>Age:</strong> " + generateAge(charAge);
+  profileAge.innerHTML = "<strong>Age:</strong> " + createAge;
   // HOROSCOPE
-  profileHoroscope.innerHTML = "<strong>Horoscope:</strong> " + HOROSCOPE[Math.floor(Math.random()*HOROSCOPE.length)];
+  profileHoroscope.innerHTML = "<strong>Horoscope:</strong> " + createHoroscope;
   // TYPE
-  profileType.innerHTML = "<strong>Type:</strong> Not Famous"; // select option value here
+  profileType.innerHTML = "<strong>Type:</strong> Create Your Own"; // select option value here
   // BIO
-  profileBio.innerHTML = "<strong>Bio:</strong> " + generateBIO();
+  profileBio.innerHTML = "<strong>Bio:</strong> " + createBio;
   //ADJECTIVES
-  profileAdjectives.innerHTML = "<strong>Adjectives:</strong> " + POSITIVE_ADJECTIVE_LIST[Math.floor(Math.random()*POSITIVE_ADJECTIVE_LIST.length)] + "/" + NEGATIVE_ADJECTIVE_LIST[Math.floor(Math.random()*NEGATIVE_ADJECTIVE_LIST.length)];
+  profileAdjectives.innerHTML = "<strong>Adjectives:</strong> " + createAdjectives;
   // QUIRKY_FACT
-  profileQuirkyFact.innerHTML = "<strong>Quirky fact:</strong> " + QUIRKY_FACT[Math.floor(Math.random()*QUIRKY_FACT.length)];
+  profileQuirkyFact.innerHTML = "<strong>Quirky fact:</strong> " + createQuirkyFact;
   // PROFESSION
-  profileProfession.innerHTML = "<strong>Profession:</strong> " + PROFESSION[Math.floor(Math.random()*PROFESSION.length)];  
+  profileProfession.innerHTML = "<strong>Profession:</strong> " + createProfession;  
   
   toggleBtns([restartBtn], true);
 }
@@ -249,7 +269,7 @@ function toggleBtns(btnsArray, on) {
 }
 
 function toggleContainer() {
-
+  // maybe write a toggle container function
 }
 
 function removeAllChildNodes(parent, storageArray) {
