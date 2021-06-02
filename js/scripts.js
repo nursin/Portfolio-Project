@@ -2,6 +2,7 @@
 var storageChooseCharForm = [];
 var storageCreateOwnCharForm = [];
 var storageProfileReadyCard = [];
+var storageInstructionsCard = [];
 var VOID_ARRAY_PROFILE_HEADER =[];
 
 var createName;
@@ -31,17 +32,25 @@ const createOwnCharacterForm = document.querySelector('#createOwnCharacterForm')
 const generateCreateOwnProfileBtn = document.querySelector('#generateCreateOwnProfileBtn');
 const profileReadyContainer = document.querySelector('#profileReadyContainer');
 const backBtn = document.querySelector('#backBtn');
+const instructionsCard = document.querySelector('#instructionsCard');
+const startBtn = document.querySelector('#startBtn');
+
+
 
 
 
 generateCreateOwnProfileBtn.addEventListener('click', generateCreateOwnProfile);
 generateProfileBtn.addEventListener('click', generateProfile);
 clearProfileBtn.addEventListener('click', clearProfile);
+startBtn.addEventListener('click', startGame);
 
-
-
+function startGame() {
+  removeAllChildNodes(instructionsCard, storageInstructionsCard);
+  addRemovedChildNodes(chooseCharacterForm, storageChooseCharForm);
+}
 
 toggleBtns([restartBtn], false);
+removeAllChildNodes(chooseCharacterForm, storageChooseCharForm);
 removeAllChildNodes(createOwnCharacterForm, storageCreateOwnCharForm);
 removeAllChildNodes(profileReadyContainer, storageProfileReadyCard);
 
