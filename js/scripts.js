@@ -124,7 +124,7 @@ function generateFamousProfile(charAge, charGender) {
   
   randomFamousPerson = Math.floor(Math.random()*gender.length);
   // Profile header
-  profileHeader.innerText = 'Character profile ready:';
+  profileHeader.innerText = 'Character profile ready';
   // NAME
   profileName.innerHTML = "<strong>Name:</strong> " + gender[randomFamousPerson][0];
   // AGE
@@ -147,7 +147,7 @@ function generateFamousProfile(charAge, charGender) {
 
 function generateNotFamousProfile(charAge, charGender) {
   // Profile header
-  profileHeader.innerText = 'Character profile ready:';
+  profileHeader.innerText = 'Character profile ready';
   // NAME
   profileName.innerHTML = "<strong>Name:</strong> " + generateName(charGender);
   // AGE
@@ -192,7 +192,7 @@ function generateCreateOwnProfile() {
 
   //*** this needs to be changed to the values entered into the createownform ***
   // Profile header
-  profileHeader.innerText = 'Character profile ready:';
+  profileHeader.innerText = 'Character profile ready';
   // NAME
   profileName.innerHTML = "<strong>Name:</strong> " + createName;
   // AGE
