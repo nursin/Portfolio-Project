@@ -30,12 +30,15 @@ const chooseCharacterForm = document.querySelector('#chooseCharacterForm');
 const createOwnCharacterForm = document.querySelector('#createOwnCharacterForm');
 const generateCreateOwnProfileBtn = document.querySelector('#generateCreateOwnProfileBtn');
 const profileReadyContainer = document.querySelector('#profileReadyContainer');
+const backBtn = document.querySelector('#backBtn');
 
 
 
 generateCreateOwnProfileBtn.addEventListener('click', generateCreateOwnProfile);
 generateProfileBtn.addEventListener('click', generateProfile);
 clearProfileBtn.addEventListener('click', clearProfile);
+
+
 
 
 toggleBtns([restartBtn], false);
